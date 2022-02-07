@@ -1,7 +1,7 @@
 """One Shot Wordle"""
 
 
-_author_ = "730403454"
+__author__ = "730403454"
 
 x: str = ("python")
 guess: str = input(f"What is your {len(x)}-letter guess? ")
