@@ -24,7 +24,7 @@ def contains_char(a: str, b: str) -> bool:
                 return True
             else:
                 return False
-        i = i + 1
+        i += 1
 def emojified(guess: str, secret: str) -> str:
     """Yellow, white, or green."""
     assert len(guess) == len(secret)
@@ -32,11 +32,18 @@ def emojified(guess: str, secret: str) -> str:
     YELLOW_BOX: str = "\U0001F7E8"
     GREEN_BOX: str = "\U0001F7E9"
     python: str = ""
-    while i < len(guess):
-        if contains_char(secret, guess[i]) == False:
+    p: int = 0
+    while p < len(secret):
+        if contains_char(secret, guess[p]) is False:
             python += WHITE_BOX
-        elif secret[i] == guess[i]:
+        elif secret[p] == guess[p]:
             python += GREEN_BOX
         else:
             python += YELLOW_BOX
-
+        p += 1
+    return python
+def input_guess(x: int) -> str:
+    guessy: str = input(f"Enter a {x} character word:")
+    while len(guessy) != x:
+        guessy: str = input(f"That wasn't {x} chars! Try again: ")
+    return guessy
