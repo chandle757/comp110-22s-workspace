@@ -1,7 +1,7 @@
 """Wordle."""
 
 
-__author__ = 730403454
+__author__ = "730403454"
 
 
 i: int = 0
@@ -10,6 +10,7 @@ i: int = 0
 def contains_char(a: str, b: str) -> bool:
     """Is b within a?"""
     assert len(b) == 1
+    f: bool = False
     i: int = 0
     while i < len(a):
         if b == a[i]:
@@ -27,6 +28,7 @@ def contains_char(a: str, b: str) -> bool:
             else:
                 return False
         i += 1
+    return f
 
 
 def emojified(guess: str, secret: str) -> str:
@@ -49,6 +51,7 @@ def emojified(guess: str, secret: str) -> str:
 
 
 def input_guess(x: int) -> str:
+    """Main input of wordle."""
     guessy: str = input(f"Enter a {x} character word: ")
     while len(guessy) != x:
         guessy: str = input(f"That wasn't {x} chars! Try again: ")
