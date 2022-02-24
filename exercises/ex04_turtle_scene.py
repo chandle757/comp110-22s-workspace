@@ -2,16 +2,19 @@
 
 __author__ = "730403454"
 
-from turtle import Turtle, colormode, done, fillcolor
+from turtle import Turtle, done, colormode
+colormode(255)
 
 
 def main() -> None:
     """The entrypoint of my scene.""" 
+    colormode(255)
     p: Turtle = Turtle()
     q: Turtle = Turtle()
     r: Turtle = Turtle()
     s: Turtle = Turtle()
     t: Turtle = Turtle()
+    u: Turtle = Turtle()
     speedy: int = 100
     p.speed(speedy)
     q.speed(speedy)
@@ -19,14 +22,16 @@ def main() -> None:
     s.speed(speedy)
     t.speed(speedy)
     
+    draw_building(s, "black", [138, 54, 15], 250, -300, 50, 200)
     draw_star(p, -400, 0, 150)
     draw_star(q, -200, 50, 100)
     draw_moon(r, 0, 100, 1)
-    draw_building(s, "black", "brown", 250, -300, 50, 200)
-    draw_building(t, "black", "orange", 275, -200, 10, 20)
+    draw_building(t, "black", [255, 0, 0], 275, -200, 10, 20)
     done()
 
+
 def draw_sky(a: Turtle, color: str) -> None:
+    """The sky in the background."""
     d: float = 1300
     e: int = 0
 
@@ -43,7 +48,9 @@ def draw_sky(a: Turtle, color: str) -> None:
     a.end_fill()
     done()
 
+
 def draw_star(star: Turtle, x: float, y: float, star_size: float) -> None:
+    """Stars in the night."""
     i: int = 0
 
     star.pencolor("orange")
@@ -59,7 +66,9 @@ def draw_star(star: Turtle, x: float, y: float, star_size: float) -> None:
     star.end_fill()
     done()
 
+
 def draw_moon(f: Turtle, g: float, h: float, moon_size: float) -> None:
+    """The shining moon."""
     j: int = 0
 
     f.pencolor("grey")
@@ -75,13 +84,15 @@ def draw_moon(f: Turtle, g: float, h: float, moon_size: float) -> None:
     f.end_fill()
     done()
 
-def draw_building(k: Turtle, outline_color: str,fill_color: str, l: float, m: float, width: float, height: float) -> None:
+
+def draw_building(k: Turtle, outline_color: str, fill_color: list, v: float, m: float, width: float, height: float) -> None:
+    """A great, big,building."""
     n: int = 0
 
     k.pencolor(outline_color)
     k.fillcolor(fill_color)
     k.penup()
-    k.goto(l, m)
+    k.goto(v, m)
     k.setheading(0.0)
     k.pendown()
     k.begin_fill()
