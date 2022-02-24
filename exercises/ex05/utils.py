@@ -16,6 +16,10 @@ def sub(set: list[int], start_index: int, end_index: int) -> list[int]:
     """Creates a well oiled subset."""
     i: int = start_index
     subset: list[int] = list()
+    if start_index < 0:
+        i = 0
+    if end_index > len(set):
+        end_index = len(set)
     if len(set) > 0 and start_index < len(set) and end_index > 0:
         while i < end_index:
             subset.append(set[i])
