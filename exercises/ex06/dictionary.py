@@ -20,19 +20,14 @@ def favorite_color(colors: dict[str, str]) -> str:
     tote: dict[str, int] = {}
     for trip in colors:
         tote[colors[trip]] = 1
-        for voyage in colors:
-            if colors[trip] == colors[voyage]:
-                tote[colors[trip]] += 1
-    print(tote)
-    while len(tote) > 1:
-        for bag in tote:
-            for brand in tote:
-                if tote[bag] > tote[brand]:
-                    tote.pop(brand)
-    for key in tote:
-        most_popular = key
-        return most_popular
-
+        if trip in tote:
+            tote[colors[trip]] += 1
+        for key in tote:
+            if tote[key] > tote[colors[trip]]:
+                most_popular = str(key)
+            else:
+                most_popular = str(colors[trip])
+    return most_popular
 
 def count(rope: list[str]) -> dict[str, int]:
     expansion: dict[str, int] = {}
